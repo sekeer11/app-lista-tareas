@@ -13,9 +13,14 @@ const App = () => {
         completada: false
       },
       {
-        id: 1,
+        id: 2,
         texto: 'salir de paseo',
-        completada: false
+        completada: true
+      },
+      {
+        id: 3,
+        texto: 'tarea para eliminar',
+        completada: true
       }
     ]
   );
@@ -24,7 +29,7 @@ const App = () => {
     <div className="contenedor">
       <Header />   
       <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas} />   
-      <ListaTareas tareas={tareas}/>
+      <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} />
     </div>
   );
 }
