@@ -1,7 +1,7 @@
 import React from 'react';
 import Tarea from './Tarea';
 
-const ListaTareas = ({tareas, cambiarTareas}) => {
+const ListaTareas = ({tareas, cambiarTareas, mostarCompletadas}) => {
     const toggleCompletada = (id) => {
         cambiarTareas(tareas.map((tarea) => {
             if (tarea.id === id) {
@@ -30,15 +30,26 @@ const ListaTareas = ({tareas, cambiarTareas}) => {
         <ul className="lista-tareas">
             {
             tareas.length > 0 ?
-                tareas.map( t => {
-                    return <Tarea 
-                                key={t.id}
-                                tarea={t}
-                                toggleCompletada={toggleCompletada}
-                                cambiarTareas={cambiarTareas}
-                                editarTarea={editarTarea}
-                                eliminarTarea={eliminarTarea}
-                            /> 
+                tareas.map( tarea => {
+                    if (mostarCompletadas){
+                        return <Tarea 
+                                    key={tarea.id}
+                                    tarea={tarea}
+                                    toggleCompletada={toggleCompletada}
+                                    cambiarTareas={cambiarTareas}
+                                    editarTarea={editarTarea}
+                                    eliminarTarea={eliminarTarea}
+                                /> 
+                    } else if (!tarea.completada) {
+                        return <Tarea 
+                                    key={tarea.id}
+                                    tarea={tarea}
+                                    toggleCompletada={toggleCompletada}
+                                    cambiarTareas={cambiarTareas}
+                                    editarTarea={editarTarea}
+                                    eliminarTarea={eliminarTarea}
+                                /> 
+                    }
                 })
             :
                 <div className="lista-tareas__mensaje"> No hay tareas agregadas</div>
