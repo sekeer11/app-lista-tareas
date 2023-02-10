@@ -29,7 +29,7 @@ const Tarea = ({tarea, toggleCompletada, editarTarea, eliminarTarea}) => {
                     <button type="submit" className="formulario-editar-tarea__btn">Actualizar</button>
                 </form>
                 :
-                tarea.texto
+                <span className={tarea.completada?"lista-tareas__texto-completadas":""}>{tarea.texto}</span>
                 }
             </div>
             <div className="lista-tareas__contenedor-botones">

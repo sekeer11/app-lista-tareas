@@ -111,6 +111,13 @@
 	width: 100%;
 }
 
+.lista-tareas__texto-completadas {
+	text-decoration-line: line-through;
+	text-decoration-style: solid;
+	text-decoration-color: black;
+	text-decoration-thickness: 2px;
+}
+
 .lista-tareas__tarea:hover .lista-tareas__icono-accion {
 	opacity: 0.5;
 }
